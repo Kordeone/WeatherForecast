@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWF.API", "RWF.API\RWF.API.csproj", "{771FC82C-4475-43D8-B932-83B84822F799}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWF.WebFramework", "RWF.WebFramework\RWF.WebFramework.csproj", "{FC1FAA1D-B63C-4A12-8AFB-E726DC826C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWF.Logic", "RWF.Logic\RWF.Logic.csproj", "{BB98C46C-992F-4968-A480-DA4A2DC74B92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWF.DataAccess", "RWF.DataAccess\RWF.DataAccess.csproj", "{C446ED73-1086-4656-B896-A161C9EC474F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWF.Model", "RWF.Model\RWF.Model.csproj", "{DAFB43FC-D41D-4117-9CB4-534527762B7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWF.Common", "RWF.Common\RWF.Common.csproj", "{20201440-1A99-466C-BA15-39758863FFE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{771FC82C-4475-43D8-B932-83B84822F799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{771FC82C-4475-43D8-B932-83B84822F799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{771FC82C-4475-43D8-B932-83B84822F799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{771FC82C-4475-43D8-B932-83B84822F799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1FAA1D-B63C-4A12-8AFB-E726DC826C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1FAA1D-B63C-4A12-8AFB-E726DC826C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1FAA1D-B63C-4A12-8AFB-E726DC826C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1FAA1D-B63C-4A12-8AFB-E726DC826C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB98C46C-992F-4968-A480-DA4A2DC74B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB98C46C-992F-4968-A480-DA4A2DC74B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB98C46C-992F-4968-A480-DA4A2DC74B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB98C46C-992F-4968-A480-DA4A2DC74B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C446ED73-1086-4656-B896-A161C9EC474F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C446ED73-1086-4656-B896-A161C9EC474F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C446ED73-1086-4656-B896-A161C9EC474F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C446ED73-1086-4656-B896-A161C9EC474F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAFB43FC-D41D-4117-9CB4-534527762B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAFB43FC-D41D-4117-9CB4-534527762B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAFB43FC-D41D-4117-9CB4-534527762B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAFB43FC-D41D-4117-9CB4-534527762B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20201440-1A99-466C-BA15-39758863FFE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20201440-1A99-466C-BA15-39758863FFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20201440-1A99-466C-BA15-39758863FFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20201440-1A99-466C-BA15-39758863FFE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

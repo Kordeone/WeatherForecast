@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RWF.Logic\RWF.Logic.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="HtmlSanitizer" Version="8.0.645" />
+      <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+      <PackageReference Include="NLog" Version="5.1.1" />
+    </ItemGroup>
+
+</Project>
