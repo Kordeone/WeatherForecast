@@ -3,12 +3,13 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using RWF.DataAccess;
+using RWF.Logic.Interfaces;
 using RWF.Model.DTOs;
 using RWF.Model.Entities;
 
 #endregion
 
-namespace RWF.Logic.Interfaces;
+namespace RWF.Logic;
 
 public class ProvinceLogic : IProvinceLogic
 {
@@ -40,6 +41,7 @@ public class ProvinceLogic : IProvinceLogic
         if (await _genericRepository.AnyAsync(x => x.Name == param.Name)) return false;
 
         _genericRepository.Add(_mapper.Map<Province>(param));
+        await _genericRepository.SaveChanges();
         return true;
     }
 
@@ -57,14 +59,17 @@ public class ProvinceLogic : IProvinceLogic
             Name = param.Name
         });
         _genericRepository.Update(savedProvince);
-        // await _genericRepository.SaveChanges();
+        await _genericRepository.SaveChanges();
         return true;
     }
 
     public async Task<bool> Update(ProvinceDto param, int id)
     {
         if (!await _genericRepository.AnyAsync(x => x.Id == id)) return false;
-        _genericRepository.Update(_mapper.Map<Province>(param));
+        var entity = _mapper.Map<Province>(param);
+        entity.Id = id;
+        _genericRepository.Update(entity);
+        await _genericRepository.SaveChanges();
         return true;
     }
 }

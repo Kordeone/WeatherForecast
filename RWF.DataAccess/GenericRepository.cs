@@ -193,12 +193,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
     {
         await _context.SaveChangesAsync();
     }
-    public async Task LoadAsync(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-        Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
-    {
-        var result = QueryDb(null, orderBy, includes);
-        await result.LoadAsync();
-    }
+
     public async Task LoadAsync(Expression<Func<TEntity, bool>> filter,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
         Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
@@ -207,17 +202,42 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
         await result.LoadAsync();
     }
 
-    public void Load(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-        Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
-    {
-        var result = QueryDb(null, orderBy, includes);
-        result.Load();
-    }
     public void Load(Expression<Func<TEntity, bool>> filter,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
         Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
     {
         var result = QueryDb(filter, orderBy, includes);
+        result.Load();
+    }
+
+    public Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> filter,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
+    {
+        IQueryable<TEntity> query = _dbSet;
+        if (filter != null)
+        {
+            query = query.Where(filter);
+        }
+
+        if (includes != null)
+        {
+            query = includes(query);
+        }
+
+        return query.SingleOrDefaultAsync();
+    }
+
+    public async Task LoadAsync(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
+    {
+        var result = QueryDb(null, orderBy, includes);
+        await result.LoadAsync();
+    }
+
+    public void Load(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null)
+    {
+        var result = QueryDb(null, orderBy, includes);
         result.Load();
     }
 

@@ -1,7 +1,7 @@
 #region
 
 using Microsoft.AspNetCore.Mvc;
-using RWF.Logic;
+using RWF.Logic.Interfaces;
 using RWF.Model.DTOs;
 
 #endregion
@@ -52,7 +52,7 @@ public class ProvincesController : ControllerBase
             return Results.Ok("Added Successfully");
         }
 
-        return Results.BadRequest("Can't add province");
+        return Results.BadRequest("Can't insert city to province");
     }
 
     [HttpPut("Update/{id:int}")]
@@ -63,6 +63,6 @@ public class ProvincesController : ControllerBase
             return Results.Ok("Updated Successfully");
         }
 
-        return Results.BadRequest("Can't add province");
+        return Results.BadRequest("Can't update province");
     }
 }
