@@ -72,7 +72,7 @@ public class LoggerManager : ILoggerManager
         info.Properties.Add("Url", request.Url);
         info.Properties.Add("RegisterDate", request.RegisterDate);
         info.Properties.Add("Params", request.Params);
-        info.Properties.Add("Responce", request.Response);
+        info.Properties.Add("Response", request.Response);
         info.Properties.Add("Duration", request.Duration);
         info.Properties.Add("Status", request.Status);
         info.Properties.Add("Error", !string.IsNullOrEmpty(request.Error) ? request.Error : "(:");

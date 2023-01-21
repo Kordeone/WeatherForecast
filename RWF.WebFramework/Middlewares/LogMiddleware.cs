@@ -1,6 +1,7 @@
 #region
 
 using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
@@ -25,17 +26,17 @@ public class LogMiddleware
     public async Task InvokeAsync(HttpContext httpContext)
     {
         var watch = Stopwatch.StartNew();
-        DateTime startDate = DateTime.Now;
-        string url = httpContext.Request.Path.Value;
+        var startDate = DateTime.Now;
+        var url = httpContext.Request.Path.Value;
         UserRequestProperties userRequest = new();
 
-        Stream originalBody = httpContext.Response.Body;
+        var originalBody = httpContext.Response.Body;
 
         try
         {
             userRequest = new UserRequestProperties
             {
-                RegisterDate = startDate.ToString(),
+                RegisterDate = startDate.ToString(CultureInfo.CurrentCulture),
                 Params = await GetRequestBodyAsync(httpContext),
                 Url = httpContext.Request.Host + url
             };

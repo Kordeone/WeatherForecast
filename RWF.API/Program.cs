@@ -2,9 +2,12 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RWF.Common;
 using RWF.DataAccess;
 using RWF.Logic;
+using RWF.Logic.Interfaces;
 using RWF.Model.MapperProfiles;
+using RWF.WebFramework.Hubs;
 using RWF.WebFramework.Middlewares;
 
 #endregion
@@ -17,12 +20,18 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddSignalR();
 builder.Services.AddDbContext<ForecastContext>(
     optionsBuilder => { optionsBuilder.UseInMemoryDatabase(databaseName: "ForecastDb"); });
 
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped<DataSeeder>();
+builder.Services.AddTransient<IProvinceLogic, ProvinceLogic>();
+builder.Services.AddTransient<ICityLogic, CityLogic>();
+builder.Services.AddTransient<ILoggerManager, LoggerManager>();
+builder.Services.AddTransient<IForecastHub, ForecastHub>();
+builder.Services.AddTransient<DataSeeder>();
 
 var app = builder.Build();
 
@@ -52,4 +61,5 @@ app.MapControllers();
 app.MapGet("minimal/Provinces",
     ([FromServices] IProvinceLogic logic) =>
         logic.GetAllDetailed());
+app.MapHub<ForecastHub>("/Hub");
 app.Run();

@@ -24,7 +24,11 @@ public interface IGenericRepository<TEntity> where TEntity : EntityBase, new()
         Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null);
 
     TEntity Get(int id, Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null);
+
     Task<TEntity> GetAsync(int id, Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null);
+
+    Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> filter,
+        Func<IQueryable<TEntity>, IQueryable<TEntity>> includes = null);
 
     IEnumerable<TEntity> Query(Expression<Func<TEntity, bool>> filter,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,

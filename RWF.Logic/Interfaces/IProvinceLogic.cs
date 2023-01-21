@@ -5,7 +5,7 @@ using RWF.Model.Entities;
 
 #endregion
 
-namespace RWF.Logic;
+namespace RWF.Logic.Interfaces;
 
 public interface IProvinceLogic
 {
